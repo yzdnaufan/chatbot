@@ -1,0 +1,8 @@
+/venv/
+
+/__blobstorage__
+
+*/__pycache__/
+
+__azurite_db_blob__.json
+__azurite_db_blob_extent__.json

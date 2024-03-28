@@ -1,0 +1,1 @@
+assert print('hello')

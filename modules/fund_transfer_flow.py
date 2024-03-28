@@ -1,4 +1,4 @@
-from classes.context_manager import ContextManager
+from services.context_manager import ContextManager
 from interfaces.flow import IFlow
 
 class FundTransferFlow(IFlow):

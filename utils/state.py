@@ -6,7 +6,7 @@ class ConversationStateManager:
     """
 
     def __init__(self):
-        self.sessions = {}  # Stores session_id -> state
+        self.states = {}  # Stores session_id -> state
 
     def get_state(self, session_id):
         """
@@ -18,7 +18,12 @@ class ConversationStateManager:
         Returns:
             ConversationState: The state of the conversation session.
         """
-        return self.sessions.get(session_id, ConversationState.INITIAL)
+        # Check if session was available
+        if session_id not in self.states:
+            self.states[session_id] = ConversationState.INITIAL
+            return ConversationState.INITIAL
+
+        return self.states.get(session_id)
 
     def set_state(self, session_id, state: ConversationState):
         """
@@ -28,7 +33,7 @@ class ConversationStateManager:
             session_id (str): The ID of the conversation session.
             state (ConversationState): The state to set for the conversation session.
         """
-        self.sessions[session_id] = state
+        self.states[session_id] = state
 
     def reset_state(self, session_id):
         """
